@@ -7,3 +7,12 @@ D:\Programming\OOP\task_5\Program\Program\obj\Debug\Program.csproj.GenerateResou
 D:\Programming\OOP\task_5\Program\Program\obj\Debug\Program.csproj.CoreCompileInputs.cache
 D:\Programming\OOP\task_5\Program\Program\obj\Debug\Program.exe
 D:\Programming\OOP\task_5\Program\Program\obj\Debug\Program.pdb
+D:\Programming\OOP\laba_1\task_5\Program\Program\bin\Debug\Program.exe.config
+D:\Programming\OOP\laba_1\task_5\Program\Program\bin\Debug\Program.exe
+D:\Programming\OOP\laba_1\task_5\Program\Program\bin\Debug\Program.pdb
+D:\Programming\OOP\laba_1\task_5\Program\Program\obj\Debug\Program.csproj.AssemblyReference.cache
+D:\Programming\OOP\laba_1\task_5\Program\Program\obj\Debug\Program.Properties.Resources.resources
+D:\Programming\OOP\laba_1\task_5\Program\Program\obj\Debug\Program.csproj.GenerateResource.cache
+D:\Programming\OOP\laba_1\task_5\Program\Program\obj\Debug\Program.csproj.CoreCompileInputs.cache
+D:\Programming\OOP\laba_1\task_5\Program\Program\obj\Debug\Program.exe
+D:\Programming\OOP\laba_1\task_5\Program\Program\obj\Debug\Program.pdb
