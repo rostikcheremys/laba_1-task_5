@@ -7,7 +7,7 @@ namespace Program
 {
     public partial class Form1 : Form
     {
-        private static List<Action<Form>> _actions;
+        private List<Action<Form>> _actions;
         private List<EventHandler> _checkBoxEventHandlers;
 
         public Form1()
