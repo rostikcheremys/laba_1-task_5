@@ -8,60 +8,53 @@ namespace Program
     public partial class Form1 : Form
     {
         private static List<Action<Form>> _actions;
-        
+        private List<EventHandler> _checkBoxEventHandlers;
+
         public Form1()
         {
             InitializeComponent();
-            Delegates();
-            Load += Form_CheckBox;
-            CheckBox_Checked(this, EventArgs.Empty);
+            Commands();
         }
-        
-        private void Delegates()
+
+        private void Commands()
         {
             _actions =
             [
-                form  => Opacity = Opacity == 1.0 ? 0.5 : 1.0,
-
-                form => BackColor = BackColor == Color.Blue ? SystemColors.Control : Color.Blue,
-
+                form => form.Opacity = form.Opacity == 1.0 ? 0.5 : 1.0,
+                form => form.BackColor = form.BackColor == Color.Blue ? SystemColors.Control : Color.Blue,
                 form => MessageBox.Show("Hello World!"),
-                
-                form => MessageBox.Show("I'm a Super Mega Button!"),
+                form => MessageBox.Show("I'm a Super Mega Button!")
             ];
         }
-        
+
         private void TransparencyButton_Click(object sender, EventArgs e) => _actions[0](this);
         
         private void ColorButton_Click(object sender, EventArgs e) => _actions[1](this);
         
         private void HelloWorldButton_Click(object sender, EventArgs e) => _actions[2](this);
         
-        private void btnSetOfActions_Click(object sender, EventArgs e) => _actions[3](this);
-        
-        private void CheckBox_Checked(object sender, EventArgs e)
-        {            
-            if (checkBox1.Checked)
-                button4.Click += TransparencyButton_Click;
-            else
-                button4.Click -= TransparencyButton_Click;
+        private void btnSetOfActions_Click(object sender, EventArgs e)
+        {
+            _checkBoxEventHandlers =
+            [
+                (s, ev) => _actions[0](this),
+                (s, ev) => _actions[1](this),
+                (s, ev) => _actions[2](this)
+            ];
+            
+            checkBox1.CheckedChanged += _checkBoxEventHandlers[0];
+            checkBox2.CheckedChanged += _checkBoxEventHandlers[1];
+            checkBox3.CheckedChanged += _checkBoxEventHandlers[2];
+            
+            checkBox1.Checked = false;
+            checkBox2.Checked = false;
+            checkBox3.Checked = false;
+            
+            checkBox1.CheckedChanged -= _checkBoxEventHandlers[0];
+            checkBox2.CheckedChanged -= _checkBoxEventHandlers[1];
+            checkBox3.CheckedChanged -= _checkBoxEventHandlers[2];
 
-            if (checkBox2.Checked)
-                button4.Click += ColorButton_Click;
-            else
-                button4.Click -= ColorButton_Click;
-
-            if (checkBox3.Checked)
-                button4.Click += HelloWorldButton_Click;
-            else
-                button4.Click -= HelloWorldButton_Click;
-        }
-        
-        private void Form_CheckBox(object sender, EventArgs e)
-        {            
-            checkBox1.CheckedChanged += CheckBox_Checked;
-            checkBox2.CheckedChanged += CheckBox_Checked;
-            checkBox3.CheckedChanged += CheckBox_Checked;
+            _actions[3](this);
         }
     }
 }
