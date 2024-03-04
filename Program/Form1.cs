@@ -8,7 +8,6 @@ namespace Program
     public partial class Form1 : Form
     {
         private List<Action<Form>> _actions;
-        private List<EventHandler> _checkBoxEventHandlers;
 
         public Form1()
         {
@@ -28,33 +27,47 @@ namespace Program
         }
 
         private void TransparencyButton_Click(object sender, EventArgs e) => _actions[0](this);
-        
-        private void ColorButton_Click(object sender, EventArgs e) => _actions[1](this);
-        
-        private void HelloWorldButton_Click(object sender, EventArgs e) => _actions[2](this);
-        
-        private void btnSetOfActions_Click(object sender, EventArgs e)
-        {
-            _checkBoxEventHandlers =
-            [
-                (s, ev) => _actions[0](this),
-                (s, ev) => _actions[1](this),
-                (s, ev) => _actions[2](this)
-            ];
-            
-            checkBox1.CheckedChanged += _checkBoxEventHandlers[0];
-            checkBox2.CheckedChanged += _checkBoxEventHandlers[1];
-            checkBox3.CheckedChanged += _checkBoxEventHandlers[2];
-            
-            checkBox1.Checked = false;
-            checkBox2.Checked = false;
-            checkBox3.Checked = false;
-            
-            checkBox1.CheckedChanged -= _checkBoxEventHandlers[0];
-            checkBox2.CheckedChanged -= _checkBoxEventHandlers[1];
-            checkBox3.CheckedChanged -= _checkBoxEventHandlers[2];
 
-            _actions[3](this);
+        private void ColorButton_Click(object sender, EventArgs e) => _actions[1](this);
+
+        private void HelloWorldButton_Click(object sender, EventArgs e) => _actions[2](this);
+
+        private void btnSetOfActions_Click(object sender, EventArgs e) => _actions[3](this);
+
+        private void IsSelectedCheckBox1(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                _actions[3] += _actions[0];
+            }
+            else
+            {
+                _actions[3] -= _actions[0];
+            }
+        }
+        
+        private void IsSelectedCheckBox2(object sender, EventArgs e)
+        {
+            if (checkBox2.Checked)
+            {
+                _actions[3] += _actions[1];
+            }
+            else
+            {
+                _actions[3] -= _actions[1];
+            }
+        }
+
+        private void IsSelectedCheckBox3(object sender, EventArgs e)
+        {
+            if (checkBox3.Checked)
+            {
+                _actions[3] += _actions[2];
+            }
+            else
+            {
+                _actions[3] -= _actions[2];
+            }
         }
     }
 }

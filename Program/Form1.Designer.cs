@@ -86,6 +86,7 @@
             this.checkBox1.TabIndex = 1;
             this.checkBox1.Text = "Transparency";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.Click += new System.EventHandler(this.IsSelectedCheckBox1);
             // 
             // checkBox2
             // 
@@ -95,6 +96,7 @@
             this.checkBox2.TabIndex = 5;
             this.checkBox2.Text = "Background color";
             this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.Click += new System.EventHandler(this.IsSelectedCheckBox2);
             // 
             // checkBox3
             // 
@@ -104,6 +106,7 @@
             this.checkBox3.TabIndex = 6;
             this.checkBox3.Text = "Hello World";
             this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.Click += new System.EventHandler(this.IsSelectedCheckBox3);
             // 
             // Form1
             // 
